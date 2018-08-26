@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tomute) return message.reply("No se encontro al usuario");
 if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("No se puede mutear!");
-let muterole = message.guild.find(`name`, "muted");
+let muterole = message.guild.find(r => r.name === "Muteado");
 //Creacion rol
 if(!muterole){
  try{
@@ -38,7 +38,7 @@ message.reply(`<@>${tomute.id}> Ha sido muteado por ${ms(ms(mutetime))}`)
 setTimeput(function(){
   tomute.removeRole(muterole.id)
   message.channel.send(`<@${tomute.id}> Ha sido desmuteado`)
-}, ms(mutetime)}
+}, (10000));
 
 }
 
