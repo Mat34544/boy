@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
-const ms = require("ms")
+const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
 
 //-tempmute @user 1s/1m/h/d/y
 
-let tomute = message.members.first() || message.guild.members.get(args[0]));
+let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tomute) return message.reply("No se encontro al usuario");
-if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("No se puede mutear");
+if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("No se puede mutear!");
 let mutero;e = message.guild.find(`name`, "muted");
 //Creacion rol
 if(!muterole){
