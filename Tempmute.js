@@ -33,7 +33,7 @@ let mutetime = args[1]
 if (!mutetime) return message.reply("No especificaste un tiempo de muteo!")
 
 await(tomute.addRole(muterole.id));
-message.reply(`<@>${tomute.id}> Ha sido muteado por ${ms(mutetime)}`)
+message.reply(`<@>${tomute.id}> Ha sido muteado por ${ms(ms(mutetime))}`)
 
 setTimeput(function(){
   tomute.removeRole(muterole.id)
