@@ -7,7 +7,7 @@ const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} en Linea!`);
-  bot.user.setActivity("Miembros M community", {type: "VIGILANDO"});
+  bot.user.setGame("M Community");
 });
 
 bot.on("message", async message => {
