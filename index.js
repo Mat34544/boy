@@ -2,6 +2,8 @@
 const botconfig = require("./botconfig.json");
 const Discord = require ("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
+const fs = require("fs");
+const ms = require("ms");
 
 
 
@@ -50,6 +52,33 @@ if(cmd === `${prefix}reportar`){
     return;
 
 }
+
+
+
+
+
+
+
+
+
+//COMANDO !WARN @USUARIO RAZON
+
+  let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
+
+  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("No tienes permisos");
+  let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
+  if(!wUser) return message.reply("No se encontro al usuario");
+  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("Moderador Activado")
+  let reaseon = args.join(" ").slice(22);
+
+  if(!warns[wUser.id]) warns [wUser.id] = {
+  warns: 0
+
+  };
+
+}
+
+
 
 
 
