@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tomute) return message.reply("No se encontro al usuario");
 if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("No se puede mutear!");
-let muterole = message.guild.find(name, "muted");
+let muterole = message.guild.find(R => R.name === "muted");
 //Creacion rol
 if(!muterole){
             try{
