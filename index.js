@@ -71,8 +71,8 @@ if(cmd === `${prefix}infoserver`){
   .addField("Nombre", message.guild.name)
   .addField("Creado En", message.guild.createdAt)
   .addField("Te uniste", message.member.joinedAt)
-  .addField("Miembros en total", message.guild.memberCount);
-  .addField("Miembros en Linea", online.size, true)
+  .addField("Miembros en total", message.guild.memberCount)
+  .addField("Miembros en Linea", online.size, true);
 
 
   return message.channel.send(serverembed);
